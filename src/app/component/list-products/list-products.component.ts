@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MercadoLibreService} from '../../services/mercadolibre.service'
 
 @Component({
   selector: 'app-list-products',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListProductsComponent implements OnInit {
 
-  constructor() { }
+  criteria:string = ''
+  product:string=''
+  products=[]
+
+  constructor(private mercadoservice: MercadoLibreService) { 
+
+  }
 
   ngOnInit() {
+    
   }
+
+  metodoBuscar(){
+    this.mercadoservice.Search_product(this.criteria).subscribe(result => {
+      this.products=result.json().results
+      console.log(this.products)
+    })
+  }
+  
+
 
 }

@@ -1,3 +1,16 @@
-<p>
-  list-products works!
-</p>
+<div>
+  <h1>Titulo</h1>
+  <form>
+    <input type="text" [(ngModel)]="criteria" name="criteria">
+    <button name="busca" (click)= "metodoBuscar()" type="submit">Buscar</button>
+  </form>  
+  <div>
+    <tr *ngFor="let i of products">
+      <img src="{{i.thumbnail}}">
+      <td>{{i.title}}</td>
+      <td>{{i.price}}</td>
+      <a href="{{i.permalink}}">Ir a comprar</a>
+    </tr>
+  </div>
+
+</div>
