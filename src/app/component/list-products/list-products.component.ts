@@ -9,7 +9,6 @@ import {MercadoLibreService} from '../../services/mercadolibre.service'
 export class ListProductsComponent implements OnInit {
 
   criteria:string = ''
-  product:string=''
   products=[]
 
   constructor(private mercadoservice: MercadoLibreService) { 
@@ -23,7 +22,6 @@ export class ListProductsComponent implements OnInit {
   metodoBuscar(){
     this.mercadoservice.Search_product(this.criteria).subscribe(result => {
       this.products=result.json().results
-      console.log(this.products)
     })
   }
   
